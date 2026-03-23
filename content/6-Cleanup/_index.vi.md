@@ -1,0 +1,76 @@
+---
+title : "Dọn dẹp tài nguyên"
+date : 2024-01-24T00:00:00+07:00
+weight : 6
+chapter : false
+pre : " <b> 6. </b> "
+---
+
+###  Dọn dẹp tài nguyên
+
+#### Xóa inbound endpoint
+
+- Truy cập vào **Route 53 Management Console**
+- Ở thanh bên trái, chọn **Inbound endpoints**
+- Tick vào **Inbound endpoint** liên quan tới bài lab
+- Chọn **Delete**
+- Gõ **delete** vào ô trống và nhấn **Delete**
+
+![Cleanup](/images/6/1.png?featherlight=false&width=90pc)
+- Chọn **Delete**
+- Gõ **delete** vào ô trống và nhấn **Delete**
+![Cleanup](/images/6/2.png?featherlight=false&width=90pc)
+
+#### Xóa Resolver Rule
+
+- Truy cập vào **Route 53 Management Console**
+- Ở thanh bên trái, chọn **Rules**
+- Chọn vào **Rule** liên quan tới bài lab để vào trang thông tin của Rule
+- Ở mục VPCs, tick vào **VPC** đang được kết nối với Rule và chọn **Disassociate**
+- Gõ **disassociate** vào ô trống và chọn **Disassociate**
+
+![Cleanup](/images/6/3.png?featherlight=false&width=90pc)
+![Cleanup](/images/6/4.png?featherlight=false&width=90pc)
+![Cleanup](/images/6/5.png?featherlight=false&width=90pc)
+- Đợi 1-2 phút để ngắt kết nối với **VPC** đó.
+- Trong trang thông tin của **Rule**, chọn **Delete**
+- Gõ **delete** vào ô trống và nhấn **Delete**
+
+![Cleanup](/images/6/6.png?featherlight=false&width=90pc)
+![Cleanup](/images/6/7.png?featherlight=false&width=90pc)
+#### Xóa Outbound Endpoint
+
+- Truy cập vào **Route 53 Management Console**
+- Ở thanh bên trái, chọn **Outbound Endpoints**
+- Tick vào **Outbound Endpoint** liên quan tới bài lab
+- Chọn **Delete**
+- Gõ **delete** vào ô trống và nhấn **Delete**
+![Cleanup](/images/6/8.png?featherlight=false&width=90pc)
+- Chọn **Delete**
+- Gõ **delete** vào ô trống và nhấn **Delete**
+![Cleanup](/images/6/9.png?featherlight=false&width=90pc)
+#### Xóa AWS Managed Microsoft Active Directory
+
+- Truy cập vào **Directory Service Management Console**
+- Ở thanh bên trái, chọn **Directories**
+- Tick vào **Directory** liên quan tới bài lab
+- Chọn **Actions** và chọn **Delete directory**
+- Gõ **confirm** vào ô trống và nhấn **Delete**
+![Cleanup](/images/6/10.png?featherlight=false&width=90pc)
+- Chọn **Actions** và chọn **Delete directory**
+- Gõ **confirm** vào ô trống và nhấn **Delete**
+![Cleanup](/images/6/11.png?featherlight=false&width=90pc)
+![Cleanup](/images/6/12.png?featherlight=false&width=90pc)
+
+#### Xóa CloudFormation Stack - khi bạn xóa CloudFormation Stack, các tài nguyên được tạo bởi stack đó đều được xóa.
+
+- Trong trường hợp này, **stack HybridDNS** đã tạo ra hai **stack con (nested stack)**, và khi bạn xóa **stack HybridDNS**, hai **stack con** cũng được xóa theo.
+- Truy cập vào **CloudFormation Management Console**
+- Ở thanh bên trái, chọn **Stacks**
+- Tick vào **stack HybridDNS** và chọn **Delete**
+- Trong **Delete stack** chọn **Delete**
+- Đợi vài phút cho tới khi **CloudFormation** xóa bỏ hết tài nguyên
+![Cleanup](/images/6/13.png?featherlight=false&width=90pc)
+- Tick vào **stack HybridDNS** và chọn **Delete**
+- Trong **Delete stack** chọn **Delete**
+![Cleanup](/images/6/14.png?featherlight=false&width=90pc)
